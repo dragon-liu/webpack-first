@@ -5,6 +5,7 @@ const config = require('./public/config')[isDev ? 'dev' : 'build'];
 
 module.exports = {
   mode: isDev ? 'development' : 'production',
+  entry: './src/index.js',
   module: {
       rules: [
           {
