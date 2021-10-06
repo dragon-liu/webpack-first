@@ -30,7 +30,7 @@ module.exports = {
                     }
                   }
                 }
-            }, 'less-loader'],
+            }, 'resolve-url-loader', 'less-loader'],
             exclude: /node_modules/
           }
       ]
