@@ -1,11 +1,17 @@
 //webpack.config.js
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const path = require('path');
 const isDev = process.env.NODE_ENV === 'development';
 const config = require('./public/config')[isDev ? 'dev' : 'build'];
 
 module.exports = {
   mode: isDev ? 'development' : 'production',
   entry: './src/index.js',
+  output: {
+    path: path.resolve(__dirname, 'dist'), //必须是绝对路径
+    filename: 'bundle.[hash:6].js',
+    publicPath: '/' //通常是CDN地址
+  },
   module: {
       rules: [
           {
