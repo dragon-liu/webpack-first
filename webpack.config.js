@@ -14,6 +14,7 @@ module.exports = {
           }
       ]
   },
+  devtool: 'eval-cheap-module-source-map', //开发环境下使用
   plugins: [
     //数组 放着所有的webpack插件
     new HtmlWebpackPlugin({
@@ -29,11 +30,22 @@ module.exports = {
   ],
   devServer: {
     port: '3000', //默认是8080
-    quiet: false, //默认不启用
-    inline: true, //默认开启 inline 模式，如果设置为false,开启 iframe 模式
-    stats: "errors-only", //终端仅打印 error
-    overlay: false, //默认不启用
-    clientLogLevel: "silent", //日志等级
+    //webpack 5移除了以下两项
+    // quiet: false, //默认不启用
+    // inline: true, //默认开启 inline 模式，如果设置为false,开启 iframe 模式
+    devMiddleware: {
+      stats: "errors-only", //终端仅打印 error
+    },
+    client: {
+      logging: 'info',
+      // Can be used only for `errors`/`warnings`
+      //
+      // overlay: {
+      //   errors: true,
+      //   warnings: true,
+      // }
+      overlay: false, //默认不启用
+    },
     compress: true //是否启用 gzip 压缩
   }
 }
