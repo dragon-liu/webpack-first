@@ -32,6 +32,19 @@ module.exports = {
                 }
             }, 'resolve-url-loader', 'less-loader'],
             exclude: /node_modules/
+          },
+          {
+            test: /\.(png|jpg|gif|jpeg|webp|svg|eot|ttf|woff|woff2)$/,
+            use: [
+                {
+                    loader: 'url-loader',
+                    options: {
+                        limit: 10240, //10K
+                        esModule: false
+                    }
+                }
+            ],
+            exclude: /node_modules/
           }
       ]
   },
