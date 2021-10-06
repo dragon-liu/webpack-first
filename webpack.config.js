@@ -11,6 +11,27 @@ module.exports = {
               test: /\.jsx?$/, //匹配规则
               use: ['babel-loader'],
               exclude: /node_modules/ //排除 node_modules 目录
+          },
+          {
+            test: /\.(le|c)ss$/,
+            use: ['style-loader', 'css-loader', {
+                loader: 'postcss-loader',
+                options: {
+                  postcssOptions: {
+                    plugins: function () {
+                        return [
+                            require('autoprefixer')({
+                                "overrideBrowserslist": [
+                                    ">0.25%",
+                                    "not dead"
+                                ]
+                            })
+                        ]
+                    }
+                  }
+                }
+            }, 'less-loader'],
+            exclude: /node_modules/
           }
       ]
   },
