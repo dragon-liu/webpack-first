@@ -45,7 +45,11 @@ module.exports = {
                 }
             ],
             exclude: /node_modules/
-          }
+          },
+          // {
+          //   test: /.html$/,
+          //   use: 'html-withimg-loader'
+          // }
       ]
   },
   devtool: 'eval-cheap-module-source-map', //开发环境下使用
