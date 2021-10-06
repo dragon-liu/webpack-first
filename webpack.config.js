@@ -1,6 +1,7 @@
 //webpack.config.js
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const isDev = process.env.NODE_ENV === 'development';
 const config = require('./public/config')[isDev ? 'dev' : 'build'];
 
@@ -71,7 +72,8 @@ module.exports = {
         //     collapseWhitespace: false, //是否折叠空白
         // },
         // hash: true //是否加上hash，默认是 false
-    })
+    }),
+    new CleanWebpackPlugin()
   ],
   devServer: {
     port: '3000', //默认是8080
