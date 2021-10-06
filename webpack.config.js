@@ -73,7 +73,9 @@ module.exports = {
         // },
         // hash: true //是否加上hash，默认是 false
     }),
-    new CleanWebpackPlugin()
+    new CleanWebpackPlugin({
+      cleanOnceBeforeBuildPatterns:['**/*', '!dll', '!dll/**'] //不删除dll目录下的文件
+    })
   ],
   devServer: {
     port: '3000', //默认是8080
