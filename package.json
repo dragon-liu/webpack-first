@@ -18,7 +18,15 @@
   },
   "homepage": "https://github.com/dragon-liu/webpack-first#readme",
   "devDependencies": {
+    "@babel/core": "^7.15.5",
+    "@babel/plugin-transform-runtime": "^7.15.0",
+    "@babel/preset-env": "^7.15.6",
+    "babel-loader": "^8.2.2",
     "webpack": "^5.57.1",
     "webpack-cli": "^4.8.0"
+  },
+  "dependencies": {
+    "@babel/runtime": "^7.15.4",
+    "@babel/runtime-corejs3": "^7.15.4"
   }
 }
